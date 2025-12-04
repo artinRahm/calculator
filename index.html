@@ -3,18 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - artin's hub;)</title>
-    <meta name="description" content="Search the web freely, watch your favorite movies and shows, and play your favorite games with nexus.">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Google Font - Comfortaa -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <title>Learning Site</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;700;800&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -22,707 +14,613 @@
         }
 
         body {
-            font-family: 'Comfortaa', sans-serif;
-            background-color: #0d0d0d;
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                radial-gradient(ellipse at center, rgba(30, 30, 30, 0.8) 0%, #0d0d0d 100%);
-            background-size: 50px 50px, 50px 50px, 100% 100%;
-            background-position: 0 0, 0 0, center center;
+            font-family: 'Mulish', sans-serif;
+            background: linear-gradient(135deg, #1a0033 0%, #340c60 25%, #50148e 50%, #340c60 75%, #1a0033 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
             color: white;
-            min-height: 100vh;
-            overflow-x: hidden;
-            animation: backgroundMove 20s linear infinite;
-        }
-
-        @keyframes backgroundMove {
-            0% {
-                background-position: 0 0, 0 0, center center;
-            }
-            100% {
-                background-position: 50px 50px, 50px 50px, center center;
-            }
-        }
-
-        /* Tab Bar */
-        .tabs-container {
-            display: flex;
-            align-items: center;
-            background-color: #1c1c1c;
-            border-bottom: 1px solid #252525;
-        }
-
-        .tabs {
-            display: flex;
-            align-items: center;
-            flex: 1;
-            overflow-x: auto;
-        }
-
-        .tab {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            cursor: pointer;
-            border-right: 1px solid #252525;
-            min-width: 150px;
-            background-color: #1c1c1c;
-            transition: all 0.3s ease;
-            animation: slideIn 0.3s ease;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .tab:hover {
-            background-color: #252525;
-        }
-
-        .tab.active {
-            background-color: #0d0d0d;
-        }
-
-        .tab span {
-            flex: 1;
-            font-size: 14px;
-            white-space: nowrap;
             overflow: hidden;
-            text-overflow: ellipsis;
+            height: 100vh;
+            position: relative;
+            transition: background-position 0.3s ease;
         }
 
-        .close-button {
-            color: white;
-            font-size: 20px;
-            line-height: 1;
-            cursor: pointer;
-            background: transparent;
-            border: none;
-            transition: all 0.2s ease;
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        .close-button:hover {
-            color: #ef4444;
-            transform: rotate(90deg);
-        }
-
-        .add-tab-button {
-            padding: 8px 16px;
-            font-size: 20px;
-            color: white;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .add-tab-button:hover {
-            background-color: #252525;
-            transform: rotate(90deg);
-        }
-
-        .add-tab-button:active {
-            transform: rotate(90deg) scale(0.9);
-        }
-
-        /* Upper Navbar */
-        .navbar {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background-color: #1c1c1c;
-            border-bottom: 1px solid #252525;
-            padding: 8px 16px;
-        }
-
-        .navbar-left,
-        .navbar-right {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .navbar-center {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .url-bar {
-            flex: 1;
-            padding: 10px 16px;
-            background-color: #252525;
-            border: 1px solid #3c3c3c;
-            border-radius: 20px;
-            color: white;
-            font-family: 'Comfortaa', sans-serif;
-            font-size: 14px;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .url-bar:focus {
-            background-color: #2a2a2a;
-            border-color: #505050;
-            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
-        }
-
-        .url-bar::placeholder {
-            color: #7c7c7c;
-        }
-
-        .nav-btn {
-            padding: 8px 12px;
-            color: white;
-            background: transparent;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .nav-btn:hover {
-            background-color: #252525;
-            transform: scale(1.05);
-        }
-
-        .nav-btn:active {
-            transform: scale(0.95);
-        }
-
-        /* Lower Navbar */
-        .lower-navbar {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            background-color: #1c1c1c;
-            border-bottom: 1px solid #252525;
-            padding: 12px 16px;
-            flex-wrap: wrap;
-        }
-
-        .lower-nav-btn {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            padding: 8px 16px;
-            color: white;
-            background: transparent;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .lower-nav-btn:hover {
-            background-color: #252525;
-            transform: translateY(-2px);
-        }
-
-        .lower-nav-btn:active {
-            transform: translateY(0);
-        }
-
-        .lower-nav-btn i {
-            font-size: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .lower-nav-btn:hover i {
-            transform: scale(1.15);
-        }
-
-        .lower-nav-btn span {
-            font-size: 12px;
-        }
-
-        /* Main Content */
-        .main-content {
-            padding: 32px;
-        }
-
-        /* Announcement Modal */
-        .modal-overlay {
+        .stars {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal-overlay.hidden {
-            animation: fadeOut 0.3s ease;
             pointer-events: none;
-            opacity: 0;
+            z-index: 1;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        .star {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(235, 218, 244, 0.8);
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+            transition: transform 0.3s ease-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .cursor-trail {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(235, 218, 244, 0.8) 0%, rgba(80, 20, 142, 0.4) 50%, transparent 100%);
+            pointer-events: none;
+            z-index: 9999;
+            animation: fadeOut 1s ease-out forwards;
         }
 
         @keyframes fadeOut {
-            from {
-                opacity: 1;
-            }
-            to {
-                opacity: 0;
-            }
-        }
-
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
+            0% {
                 transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2);
+                opacity: 0;
             }
         }
 
-        .modal-content {
-            background: #0d0d0d;
-            color: white;
-            padding: 30px 40px;
-            border-radius: 20px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        .ripple {
+            position: fixed;
+            border-radius: 50%;
+            border: 2px solid rgba(235, 218, 244, 0.8);
+            pointer-events: none;
+            z-index: 9998;
+            animation: rippleEffect 0.8s ease-out forwards;
+        }
+
+        @keyframes rippleEffect {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+            100% {
+                width: 200px;
+                height: 200px;
+                opacity: 0;
+            }
+        }
+
+        mobile-warning {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             text-align: center;
-            max-width: 600px;
-            width: 90%;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            animation: scaleIn 0.3s ease;
+            z-index: 1000;
+            background: rgba(52, 12, 96, 0.9);
+            padding: 2rem;
+            border-radius: 10px;
         }
 
-        .modal-close {
+        mobile-warning .title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-transform: lowercase;
+        }
+
+        @media (max-width: 768px) {
+            mobile-warning {
+                display: block;
+            }
+            sidebar, .main-content, #bottom-menu {
+                display: none;
+            }
+        }
+
+        .main-content {
             position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 24px;
-            background: transparent;
-            border: none;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-shadow: 0 0 0.8px black;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
         }
 
-        .modal-close:hover {
-            color: #ef4444;
-            transform: rotate(90deg) scale(1.2);
+        .main-title {
+            font-size: 5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: #ebdaf4;
+            text-transform: lowercase;
+            letter-spacing: 0.05em;
         }
 
-        .modal-content h2 {
-            margin-bottom: 5px;
-            font-size: 22px;
-            letter-spacing: 1px;
+        .subtitle {
+            font-size: 1.25rem;
+            color: rgba(235, 218, 244, 0.9);
+            margin-bottom: 3rem;
+            font-weight: 400;
         }
 
-        .modal-announcement {
-            margin-bottom: 10px;
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
         }
 
-        .modal-info {
-            font-size: 13px;
-            opacity: 0.85;
-            margin-top: 10px;
+        .icon {
+            width: 80px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            border-radius: 10px;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .tabs {
-                overflow-x: auto;
-            }
-
-            .navbar-left,
-            .navbar-right {
-                gap: 4px;
-            }
-
-            .nav-btn {
-                padding: 6px 10px;
-            }
-
-            .lower-navbar {
-                gap: 8px;
-            }
-
-            .lower-nav-btn {
-                padding: 6px 12px;
-            }
+        .icon:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.05);
         }
-        /* Animated Background Canvas */
-        #background-canvas {
+
+        .icon img {
+            width: 60px;
+            height: 60px;
+            filter: brightness(0) invert(1);
+        }
+
+        sidebar {
             position: fixed;
+            right: 0;
             top: 0;
-            left: 0;
-            width: 100%;
             height: 100%;
-            z-index: -1;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            z-index: 100;
+            width: 60px;
+        }
+
+        .sidebar-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sidebar-item a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .sidebar-item a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.1);
+        }
+
+        .sidebar-item a img {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0) invert(1);
+        }
+
+        .sidebar-item-descriptor {
+            position: absolute;
+            right: 60px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            white-space: nowrap;
+            opacity: 0;
             pointer-events: none;
+            transition: opacity 0.3s ease;
+            font-size: 0.875rem;
+            text-transform: lowercase;
+        }
+
+        .sidebar-item:hover .sidebar-item-descriptor {
+            opacity: 1;
+        }
+
+        #bottom-menu {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 60px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .bottom-item p {
+            font-size: 0.875rem;
+            color: rgba(235, 218, 244, 0.9);
+        }
+
+        loading-game {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1000;
+            background: rgba(52, 12, 96, 0.95);
+            padding: 3rem;
+            border-radius: 15px;
+        }
+
+        loading-game.active {
+            display: block;
+        }
+
+        loading-game .title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-transform: lowercase;
+            color: #ebdaf4;
+        }
+
+        loading-game p {
+            color: rgba(235, 218, 244, 0.8);
         }
     </style>
 </head>
 <body>
-    <!-- Animated Background -->
-    <canvas id="background-canvas"></canvas>
+    <mobile-warning>
+        <h1 class="title">your device is not supported!</h1>
+        <p>please rotate your screen for the best experience.</p>
+    </mobile-warning>
 
-    <!-- Tab Bar -->
-    <div class="tabs-container">
-        <div class="tabs" id="tabs"></div>
-        <button class="add-tab-button" onclick="addTab()">+</button>
-    </div>
+    <loading-game>
+        <h1 class="title">we are loading your game!</h1>
+        <p>please allow us to fetch the data first, this should only take a second.</p>
+    </loading-game>
 
-    <!-- Upper Navbar -->
-    <div class="navbar">
-        <div class="navbar-left">
-            <button class="nav-btn" onclick="goBack()">
-                <i class="fas fa-arrow-left"></i>
-            </button>
-            <button class="nav-btn" onclick="goForward()">
-                <i class="fas fa-arrow-right"></i>
-            </button>
-            <button class="nav-btn" onclick="reload()">
-                <i class="fas fa-rotate-right"></i>
-            </button>
-            <button class="nav-btn" onclick="goHome()">
-                <i class="fas fa-home"></i>
-            </button>
-        </div>
+    <div class="stars"></div>
 
-        <div class="navbar-center">
-            <input
-                type="text"
-                class="url-bar"
-                id="urlBar"
-                placeholder="Search or enter URL..."
-                onkeypress="handleUrlBarEnter(event)"
-            >
-        </div>
-
-        <div class="navbar-right">
-            <button class="nav-btn" onclick="openInNewWindow()">
-                <i class="fa-solid fa-up-right-from-square"></i>
-            </button>
-            <button class="nav-btn" onclick="toggleFullscreen()">
-                <i class="fas fa-expand"></i>
-            </button>
-            <button class="nav-btn">
-                <i class="fa fa-code"></i>
-            </button>
-            <button class="nav-btn">
-                <i class="fa fa-cog"></i>
-            </button>
-        </div>
-    </div>
-
-    <!-- Lower Navbar -->
-    <div class="lower-navbar">
-        <button class="lower-nav-btn">
-            <i class="fas fa-gamepad"></i>
-            <span>Games</span>
-        </button>
-        <button class="lower-nav-btn">
-            <i class="fa-solid fa-cloud"></i>
-            <span>Nexus</span>
-        </button>
-        <button class="lower-nav-btn">
-            <i class="fa-solid fa-video"></i>
-            <span>Media</span>
-        </button>
-        <button class="lower-nav-btn">
-            <i class="fa-sharp fa-solid fa-layer-group"></i>
-            <span>Apps</span>
-        </button>
-        <button class="lower-nav-btn">
-            <i class="fa-solid fa-users"></i>
-            <span>Partners</span>
-        </button>
-        <button class="lower-nav-btn">
-            <i class="fa-solid fa-file-arrow-down"></i>
-            <span>Data</span>
-        </button>
-        <button class="lower-nav-btn">
-            <i class="fas fa-plus"></i>
-            <span>Extra</span>
-        </button>
-    </div>
-
-    <!-- Main Content -->
     <div class="main-content">
-        <!-- Content would go here -->
-    </div>
+        <h1 class="main-title">clover.</h1>
+        <p class="subtitle">clover</p>
 
-    <!-- Announcement Modal -->
-    <div class="modal-overlay" id="announcementModal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeAnnouncement()">×</button>
-            <h2>Announcements</h2>
-            <div class="modal-announcement">hi go to clover!</div>
-            <div class="modal-info">
-                <span><strong>artin</strong> (artin) · 10/23/2025, 3:41:00 PM</span>
+        <div class="social-icons">
+            <div class="icon" id="user-icon">
+                <img src="https://ext.same-assets.com/3317140723/1053687971.svg" alt="User" width="60" height="60">
+            </div>
+            <div class="icon" id="center-game-icon">
+                <img src="https://ext.same-assets.com/3317140723/1682574575.svg" alt="Games" width="60" height="60">
+            </div>
+            <div class="icon" id="discord-icon">
+                <img src="https://ext.same-assets.com/3317140723/2489687227.svg" alt="Discord" width="60" height="60">
             </div>
         </div>
     </div>
 
+    <sidebar>
+        <div class="sidebar-item">
+            <a href="#" data-target="/home">
+                <img src="https://ext.same-assets.com/3317140723/762381749.svg" alt="Home" width="24" height="24">
+            </a>
+            <div class="sidebar-item-descriptor">home</div>
+        </div>
+        <div class="sidebar-item">
+            <a href="#" id="games-link">
+                <img src="https://ext.same-assets.com/3317140723/1682574575.svg" alt="Games" width="24" height="24">
+            </a>
+            <div class="sidebar-item-descriptor">games</div>
+        </div>
+        <div class="sidebar-item">
+            <a href="#" data-target="/apps">
+                <img src="https://ext.same-assets.com/3317140723/998683769.svg" alt="Apps" width="24" height="24">
+            </a>
+            <div class="sidebar-item-descriptor">apps</div>
+        </div>
+        <div class="sidebar-item">
+            <a href="#" data-target="/bookmarklets">
+                <img src="https://ext.same-assets.com/3317140723/2918451387.svg" alt="Bookmarklets" width="24" height="24">
+            </a>
+            <div class="sidebar-item-descriptor">bookmarklets</div>
+        </div>
+        <div class="sidebar-item">
+            <a href="#" id="openblank">
+                <img src="https://ext.same-assets.com/3317140723/2600602730.svg" alt="Open Blank" width="24" height="24">
+            </a>
+            <div class="sidebar-item-descriptor">open blank</div>
+        </div>
+        <div class="sidebar-item">
+            <a href="#" id="fullscreen">
+                <img src="https://ext.same-assets.com/3317140723/3724763578.svg" alt="Fullscreen" width="24" height="24">
+            </a>
+            <div class="sidebar-item-descriptor">fullscreen</div>
+        </div>
+        <div class="sidebar-item">
+            <a href="#" data-target="/u/">
+                <img src="https://ext.same-assets.com/3317140723/2067000323.svg" alt="User Profile" width="24" height="24">
+            </a>
+            <div class="sidebar-item-descriptor">user profile</div>
+        </div>
+        <div class="sidebar-item">
+            <a href="#" data-target="/settings">
+                <img src="https://ext.same-assets.com/3317140723/1346388685.svg" alt="Settings" width="24" height="24">
+            </a>
+            <div class="sidebar-item-descriptor">settings</div>
+        </div>
+        <div class="sidebar-item">
+            <a href="#" data-target="/info">
+                <img src="https://ext.same-assets.com/3317140723/2152150559.svg" alt="Information" width="24" height="24">
+            </a>
+            <div class="sidebar-item-descriptor">information</div>
+        </div>
+    </sidebar>
+
+    <div id="bottom-menu">
+        <div class="bottom-item">
+            <p id="online">currently online: 1223</p>
+        </div>
+        <div class="bottom-item">
+            <p>|</p>
+        </div>
+        <div class="bottom-item">
+            <p id="weather">35°F ☁️</p>
+        </div>
+        <div class="bottom-item">
+            <p>|</p>
+        </div>
+        <div class="bottom-item">
+            <p id="time">1:28:57 PM</p>
+        </div>
+    </div>
+
     <script>
-        // Tab Management
-        let tabs = [{ id: 1, title: 'New Tab', active: true }];
-        let nextId = 2;
+        // Create stars/particles
+        function createStars() {
+            const starsContainer = document.querySelector('.stars');
+            if (!starsContainer) return;
 
-        function renderTabs() {
-            const tabsContainer = document.getElementById('tabs');
-            tabsContainer.innerHTML = '';
+            const starCount = 50;
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (2 + Math.random() * 3) + 's';
+                starsContainer.appendChild(star);
+            }
+        }
 
-            tabs.forEach(tab => {
-                const tabDiv = document.createElement('div');
-                tabDiv.className = 'tab' + (tab.active ? ' active' : '');
-                tabDiv.onclick = () => selectTab(tab.id);
+        // Update time
+        function updateTime() {
+            const timeElement = document.getElementById('time');
+            if (!timeElement) return;
 
-                const span = document.createElement('span');
-                span.textContent = tab.title;
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            const displayHours = hours % 12 || 12;
 
-                const closeBtn = document.createElement('button');
-                closeBtn.className = 'close-button';
-                closeBtn.textContent = '×';
-                closeBtn.onclick = (e) => closeTab(tab.id, e);
+            timeElement.textContent = displayHours + ':' + minutes + ':' + seconds + ' ' + ampm;
+        }
 
-                tabDiv.appendChild(span);
-                tabDiv.appendChild(closeBtn);
-                tabsContainer.appendChild(tabDiv);
+        // Random online count variation
+        function updateOnlineCount() {
+            const onlineElement = document.getElementById('online');
+            if (!onlineElement) return;
+
+            const baseCount = 1223;
+            const variation = Math.floor(Math.random() * 10) - 5;
+            onlineElement.textContent = 'currently online: ' + (baseCount + variation);
+        }
+
+        // Open games page function
+        function openGamesPage() {
+            // Show loading message briefly
+            const loadingGame = document.querySelector('loading-game');
+            if (loadingGame) {
+                loadingGame.classList.add('active');
+                setTimeout(function() {
+                    loadingGame.classList.remove('active');
+                }, 1000);
+            }
+
+            // Open Clover's games page in a new window
+            const newWindow = window.open('https://sites.google.com/view/cloveer/clovers-home', '_blank');
+
+            // Fallback if popup blocker prevents opening
+            if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+                window.location.href = 'https://sites.google.com/view/cloveer/clovers-home';
+            }
+        }
+
+        // Open Discord function
+        function openDiscord() {
+            // Open Discord invite link in a new tab
+            const discordUrl = 'https://discord.gg/aQ8YSn79xQ';
+            const newWindow = window.open(discordUrl, '_blank');
+
+            // Fallback if popup blocker prevents opening
+            if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+                window.location.href = discordUrl;
+            }
+        }
+
+        // Open Steam profile function
+        function openSteamProfile() {
+            // Open Steam profile link in a new tab
+            const steamUrl = 'https://steamcommunity.com/profiles/76561199703728458/';
+            const newWindow = window.open(steamUrl, '_blank');
+
+            // Fallback if popup blocker prevents opening
+            if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+                window.location.href = steamUrl;
+            }
+        }
+
+        // Cursor trail effect
+        let lastTrailTime = 0;
+        const trailDelay = 30; // milliseconds between trail particles
+
+        // Mouse movement effect for background
+        document.addEventListener('mousemove', function(e) {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+
+            // Move background gradient based on mouse position
+            const bgPosX = 50 + (mouseX - 0.5) * 20;
+            const bgPosY = 50 + (mouseY - 0.5) * 20;
+            document.body.style.backgroundPosition = bgPosX + '% ' + bgPosY + '%';
+
+            // Move stars based on mouse position with parallax effect
+            const stars = document.querySelectorAll('.star');
+            stars.forEach(function(star, index) {
+                const speed = (index % 3 + 1) * 0.5; // Different speeds for depth effect
+                const x = (mouseX - 0.5) * speed * 100;
+                const y = (mouseY - 0.5) * speed * 100;
+                star.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
             });
-        }
 
-        function addTab() {
-            tabs.push({ id: nextId, title: 'New Tab', active: false });
-            nextId++;
-            renderTabs();
-        }
-
-        function selectTab(id) {
-            tabs = tabs.map(tab => ({ ...tab, active: tab.id === id }));
-            renderTabs();
-        }
-
-        function closeTab(id, event) {
-            event.stopPropagation();
-            tabs = tabs.filter(tab => tab.id !== id);
-
-            if (tabs.length === 0) {
-                tabs = [{ id: nextId, title: 'New Tab', active: true }];
-                nextId++;
+            // Create cursor trail
+            const currentTime = Date.now();
+            if (currentTime - lastTrailTime > trailDelay) {
+                createTrailParticle(e.clientX, e.clientY);
+                lastTrailTime = currentTime;
             }
-
-            renderTabs();
-        }
-
-        function closeAnnouncement() {
-            document.getElementById('announcementModal').classList.add('hidden');
-        }
-
-        function toggleFullscreen() {
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen();
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                }
-            }
-        }
-
-        // URL Bar functionality
-        let history = [];
-        let historyIndex = -1;
-
-        function handleUrlBarEnter(event) {
-            if (event.key === 'Enter') {
-                const input = event.target.value.trim();
-                if (!input) return;
-
-                let url = input;
-
-                // Check if it's a URL or search query
-                if (!input.includes('.') && !input.startsWith('http')) {
-                    // Search query
-                    url = `https://www.google.com/search?q=${encodeURIComponent(input)}`;
-                } else if (!input.startsWith('http')) {
-                    // Add https:// if missing
-                    url = `https://${input}`;
-                }
-
-                // Add to history
-                history = history.slice(0, historyIndex + 1);
-                history.push(url);
-                historyIndex = history.length - 1;
-
-                // Update active tab title
-                const activeTab = tabs.find(t => t.active);
-                if (activeTab) {
-                    try {
-                        const urlObj = new URL(url);
-                        activeTab.title = urlObj.hostname;
-                    } catch (e) {
-                        activeTab.title = input.substring(0, 20);
-                    }
-                    renderTabs();
-                }
-
-                // Open URL
-                window.open(url, '_blank');
-                event.target.blur();
-            }
-        }
-
-        function goBack() {
-            if (historyIndex > 0) {
-                historyIndex--;
-                const url = history[historyIndex];
-                document.getElementById('urlBar').value = url;
-                window.open(url, '_blank');
-            }
-        }
-
-        function goForward() {
-            if (historyIndex < history.length - 1) {
-                historyIndex++;
-                const url = history[historyIndex];
-                document.getElementById('urlBar').value = url;
-                window.open(url, '_blank');
-            }
-        }
-
-        function reload() {
-            const url = document.getElementById('urlBar').value;
-            if (url) {
-                window.open(url, '_blank');
-            }
-        }
-
-        function goHome() {
-            document.getElementById('urlBar').value = '';
-            const activeTab = tabs.find(t => t.active);
-            if (activeTab) {
-                activeTab.title = 'New Tab';
-                renderTabs();
-            }
-        }
-
-        function openInNewWindow() {
-            const url = document.getElementById('urlBar').value;
-            if (url) {
-                window.open(url, '_blank', 'noopener,noreferrer');
-            }
-        }
-
-        // Add smooth scroll
-        document.documentElement.style.scrollBehavior = 'smooth';
-
-        // Animated Background Particles
-        const canvas = document.getElementById('background-canvas');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
         });
 
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
-                this.radius = Math.random() * 2 + 1;
-                this.opacity = Math.random() * 0.5 + 0.2;
-            }
+        // Create cursor trail particle
+        function createTrailParticle(x, y) {
+            const trail = document.createElement('div');
+            trail.className = 'cursor-trail';
+            trail.style.left = (x - 10) + 'px';
+            trail.style.top = (y - 10) + 'px';
+            document.body.appendChild(trail);
 
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-
-                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-            }
-
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
-                ctx.fill();
-            }
+            // Remove trail particle after animation
+            setTimeout(function() {
+                trail.remove();
+            }, 1000);
         }
 
-        const particles = [];
-        for (let i = 0; i < 80; i++) {
-            particles.push(new Particle());
+        // Click ripple effect
+        document.addEventListener('click', function(e) {
+            createRipple(e.clientX, e.clientY);
+        });
+
+        // Create ripple effect
+        function createRipple(x, y) {
+            const ripple = document.createElement('div');
+            ripple.className = 'ripple';
+            ripple.style.left = (x - 100) + 'px';
+            ripple.style.top = (y - 100) + 'px';
+            document.body.appendChild(ripple);
+
+            // Remove ripple after animation
+            setTimeout(function() {
+                ripple.remove();
+            }, 800);
         }
 
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // Setup event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            createStars();
+            updateTime();
+            updateOnlineCount();
 
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
+            // Games link in sidebar
+            const gamesLink = document.getElementById('games-link');
+            if (gamesLink) {
+                gamesLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openGamesPage();
+                });
+            }
 
-            // Draw connections
-            particles.forEach((p1, i) => {
-                particles.slice(i + 1).forEach(p2 => {
-                    const dx = p1.x - p2.x;
-                    const dy = p1.y - p2.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
+            // Center game icon
+            const centerGameIcon = document.getElementById('center-game-icon');
+            if (centerGameIcon) {
+                centerGameIcon.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openGamesPage();
+                });
+            }
 
-                    if (distance < 120) {
-                        ctx.beginPath();
-                        ctx.moveTo(p1.x, p1.y);
-                        ctx.lineTo(p2.x, p2.y);
-                        ctx.strokeStyle = `rgba(255, 255, 255, ${0.1 * (1 - distance / 120)})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.stroke();
+            // User/Steam icon
+            const userIcon = document.getElementById('user-icon');
+            if (userIcon) {
+                userIcon.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openSteamProfile();
+                });
+            }
+
+            // Discord icon
+            const discordIcon = document.getElementById('discord-icon');
+            if (discordIcon) {
+                discordIcon.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openDiscord();
+                });
+            }
+
+            // Open blank button
+            const openBlankBtn = document.getElementById('openblank');
+            if (openBlankBtn) {
+                openBlankBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.open('https://sites.google.com/view/cloveer/clovers-home', '_blank');
+                });
+            }
+
+            // Fullscreen button
+            const fullscreenBtn = document.getElementById('fullscreen');
+            if (fullscreenBtn) {
+                fullscreenBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    if (!document.fullscreenElement) {
+                        document.documentElement.requestFullscreen().catch(function(err) {
+                            console.log('Error attempting to enable fullscreen: ' + err.message);
+                        });
+                    } else {
+                        document.exitFullscreen();
                     }
                 });
-            });
+            }
 
-            requestAnimationFrame(animateParticles);
-        }
+            // Update time every second
+            setInterval(updateTime, 1000);
 
-        animateParticles();
-
-        // Initialize tabs on page load
-        renderTabs();
+            // Randomly update online count every 10 seconds
+            setInterval(updateOnlineCount, 10000);
+        });
     </script>
 </body>
 </html>
